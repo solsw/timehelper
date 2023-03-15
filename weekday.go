@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-// PrevWeekday returns previous weekday.
+// PrevWeekday returns [time.Weekday] previous to 'weekday'.
 func PrevWeekday(weekday time.Weekday) time.Weekday {
 	if weekday == time.Sunday {
 		return time.Saturday
@@ -12,7 +12,7 @@ func PrevWeekday(weekday time.Weekday) time.Weekday {
 	return weekday - 1
 }
 
-// NextWeekday returns next weekday.
+// NextWeekday returns [time.Weekday] next after 'weekday'.
 func NextWeekday(weekday time.Weekday) time.Weekday {
 	if weekday == time.Saturday {
 		return time.Sunday
@@ -20,7 +20,7 @@ func NextWeekday(weekday time.Weekday) time.Weekday {
 	return weekday + 1
 }
 
-// WeekdaysInYear returns number of 'weekday's in the 'year'.
+// WeekdaysInYear returns number of 'weekdays' in the 'year'.
 func WeekdaysInYear(year int, weekday time.Weekday) int {
 	jan1Weekday := DateYMD(year, time.January, 1).Weekday()
 	if (jan1Weekday == weekday) || (jan1Weekday == PrevWeekday(weekday) && IsLeapYear(year)) {
@@ -54,13 +54,15 @@ func NextClosestWeekday(t time.Time, weekday time.Weekday) time.Time {
 }
 
 // FirstWeekdayInYear returns the first occurrence of the 'weekday' in the 'year'.
-// The returned value has zero clock and time.UTC Location.
+//
+// The returned value has zero clock and [time.UTC] time zone.
 func FirstWeekdayInYear(year int, weekday time.Weekday) time.Time {
 	return NextClosestWeekday(DateYMD(year, time.January, 1), weekday)
 }
 
 // LastWeekdayInYear returns the last occurrence of the 'weekday' in the 'year'.
-// The returned value has zero clock and time.UTC Location.
+//
+// The returned value has zero clock and [time.UTC] time zone.
 func LastWeekdayInYear(year int, weekday time.Weekday) time.Time {
 	return PrevClosestWeekday(DateYMD(year, time.December, 31), weekday)
 }

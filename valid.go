@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-// ValidMonth checks if 'mon' represents a valid month.
+// ValidMonth checks if 'month' represents a valid month.
 func ValidMonth(month time.Month) error {
 	if !(time.January <= month && month <= time.December) {
 		return fmt.Errorf("invalid month '%d'", month)
@@ -13,7 +13,7 @@ func ValidMonth(month time.Month) error {
 	return nil
 }
 
-// ValidDate checks if 'year', 'mon', 'day' constitute a valid date.
+// ValidDate checks if 'year', 'month', 'day' constitute a valid date.
 func ValidDate(year int, month time.Month, day int) error {
 	if err := ValidMonth(month); err != nil || !(1 <= day && day <= DaysInMonth(year, month)) {
 		return fmt.Errorf("invalid date '%d-%d-%d'", year, month, day)

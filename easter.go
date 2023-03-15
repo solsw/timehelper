@@ -4,7 +4,9 @@ import (
 	"time"
 )
 
-// CatholicEaster returns Gregorian date of catholic Easter for 'year'.
+// CatholicEaster returns [Gregorian] date for catholic Easter for the 'year'.
+//
+// [Gregorian]: https://en.wikipedia.org/wiki/Gregorian_calendar
 func CatholicEaster(year int) time.Time {
 	// calculates month and day for 'year' of Gregorian calendar according to Jean Meeus Astronomical Algorithms
 	// https://en.wikipedia.org/wiki/Date_of_Easter
@@ -27,7 +29,9 @@ func CatholicEaster(year int) time.Time {
 	return DateYMD(year, time.Month(month), day)
 }
 
-// OrthodoxEaster returns Gregorian date of orthodox Easter for 'year'.
+// OrthodoxEaster returns [Gregorian] date for orthodox Easter for the 'year'.
+//
+// [Gregorian]: https://en.wikipedia.org/wiki/Gregorian_calendar
 func OrthodoxEaster(year int) time.Time {
 	// calculates month and day for 'year' of Julian calendar according to Jean Meeus Astronomical Algorithms
 	// https://en.wikipedia.org/wiki/Date_of_Easter
