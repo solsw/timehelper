@@ -54,14 +54,12 @@ func NextClosestWeekday(t time.Time, weekday time.Weekday) time.Time {
 }
 
 // FirstWeekdayInYear returns the first occurrence of the 'weekday' in the 'year'.
-//
 // The returned value has zero clock and [time.UTC] time zone.
 func FirstWeekdayInYear(year int, weekday time.Weekday) time.Time {
 	return NextClosestWeekday(DateYMD(year, time.January, 1), weekday)
 }
 
 // LastWeekdayInYear returns the last occurrence of the 'weekday' in the 'year'.
-//
 // The returned value has zero clock and [time.UTC] time zone.
 func LastWeekdayInYear(year int, weekday time.Weekday) time.Time {
 	return PrevClosestWeekday(DateYMD(year, time.December, 31), weekday)

@@ -23,46 +23,6 @@ func MulDuration(mul float64, d time.Duration) time.Duration {
 	return time.Duration(mul * float64(d))
 }
 
-// MulWeek returns [time.Duration] that represents a specified multiple of [Week].
-func MulWeek(mul float64) time.Duration {
-	return MulDuration(mul, Week)
-}
-
-// MulDay returns [time.Duration] that represents a specified multiple of [Day].
-func MulDay(mul float64) time.Duration {
-	return MulDuration(mul, Day)
-}
-
-// MulHour returns [time.Duration] that represents a specified multiple of [time.Hour].
-func MulHour(mul float64) time.Duration {
-	return MulDuration(mul, time.Hour)
-}
-
-// MulMinute returns [time.Duration] that represents a specified multiple of [time.Minute].
-func MulMinute(mul float64) time.Duration {
-	return MulDuration(mul, time.Minute)
-}
-
-// MulSecond returns [time.Duration] that represents a specified multiple of [time.Second].
-func MulSecond(mul float64) time.Duration {
-	return MulDuration(mul, time.Second)
-}
-
-// MulMillisecond returns [time.Duration] that represents a specified multiple of [time.Millisecond].
-func MulMillisecond(mul float64) time.Duration {
-	return MulDuration(mul, time.Millisecond)
-}
-
-// MulMicrosecond returns [time.Duration] that represents a specified multiple of [time.Microsecond].
-func MulMicrosecond(mul float64) time.Duration {
-	return MulDuration(mul, time.Microsecond)
-}
-
-// MulTick returns [time.Duration] that represents a specified multiple of [Tick].
-func MulTick(mul float64) time.Duration {
-	return MulDuration(mul, Tick)
-}
-
 // Days returns the duration as a floating point number of [Day]s.
 func Days(d time.Duration) float64 {
 	day := d / Day

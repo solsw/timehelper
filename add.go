@@ -5,7 +5,6 @@ import (
 )
 
 // AddMonth adds 'mons' months to 't'.
-//
 // If the resulting day is beyond the number of days in the month, the last day of the month is returned.
 func AddMonth(t time.Time, mons int) time.Time {
 	if mons == 0 {
