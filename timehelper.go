@@ -4,9 +4,9 @@ import (
 	"time"
 )
 
-// DateYMD returns [time.Time] corresponding to 'year', 'month' and 'day' (see [time.Date]).
+// TimeYMD returns [time.Time] corresponding to 'year', 'month' and 'day'.
 // The returned value has zero clock and [time.UTC] time zone.
-func DateYMD(year int, month time.Month, day int) time.Time {
+func TimeYMD(year int, month time.Month, day int) time.Time {
 	return time.Date(year, month, day, 0, 0, 0, 0, time.UTC)
 }
 

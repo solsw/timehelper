@@ -61,8 +61,14 @@ func TestDays(t *testing.T) {
 		args args
 		want float64
 	}{
-		{name: "1", args: args{d: MulDuration(2.5, Day)}, want: 2.5},
-		{name: "2", args: args{d: MulDuration(84, time.Hour)}, want: 3.5},
+		{name: "1",
+			args: args{d: MulDuration(2.5, Day)},
+			want: 2.5,
+		},
+		{name: "2",
+			args: args{d: MulDuration(84, time.Hour)},
+			want: 3.5,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -82,8 +88,14 @@ func TestWeeks(t *testing.T) {
 		args args
 		want float64
 	}{
-		{name: "1", args: args{d: MulDuration(14, Day)}, want: 2},
-		{name: "2", args: args{d: MulDuration(84, time.Hour)}, want: 0.5},
+		{name: "1",
+			args: args{d: MulDuration(14, Day)},
+			want: 2,
+		},
+		{name: "2",
+			args: args{d: MulDuration(84, time.Hour)},
+			want: 0.5,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

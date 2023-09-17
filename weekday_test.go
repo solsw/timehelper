@@ -40,9 +40,9 @@ func TestPrevClosestWeekday(t *testing.T) {
 		args args
 		want time.Time
 	}{
-		{name: "1", args: args{t: DateYMD(2019, time.April, 22), weekday: time.Monday}, want: DateYMD(2019, time.April, 22)},
-		{name: "2", args: args{t: DateYMD(2019, time.April, 27), weekday: time.Monday}, want: DateYMD(2019, time.April, 22)},
-		{name: "3", args: args{t: DateYMD(2019, time.April, 22), weekday: time.Wednesday}, want: DateYMD(2019, time.April, 17)},
+		{name: "1", args: args{t: TimeYMD(2019, time.April, 22), weekday: time.Monday}, want: TimeYMD(2019, time.April, 22)},
+		{name: "2", args: args{t: TimeYMD(2019, time.April, 27), weekday: time.Monday}, want: TimeYMD(2019, time.April, 22)},
+		{name: "3", args: args{t: TimeYMD(2019, time.April, 22), weekday: time.Wednesday}, want: TimeYMD(2019, time.April, 17)},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -63,9 +63,9 @@ func TestNextClosestWeekday(t *testing.T) {
 		args args
 		want time.Time
 	}{
-		{name: "1", args: args{t: DateYMD(2019, time.April, 22), weekday: time.Monday}, want: DateYMD(2019, time.April, 22)},
-		{name: "2", args: args{t: DateYMD(2019, time.April, 30), weekday: time.Thursday}, want: DateYMD(2019, time.May, 2)},
-		{name: "3", args: args{t: DateYMD(2019, time.April, 27), weekday: time.Thursday}, want: DateYMD(2019, time.May, 2)},
+		{name: "1", args: args{t: TimeYMD(2019, time.April, 22), weekday: time.Monday}, want: TimeYMD(2019, time.April, 22)},
+		{name: "2", args: args{t: TimeYMD(2019, time.April, 30), weekday: time.Thursday}, want: TimeYMD(2019, time.May, 2)},
+		{name: "3", args: args{t: TimeYMD(2019, time.April, 27), weekday: time.Thursday}, want: TimeYMD(2019, time.May, 2)},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -86,9 +86,9 @@ func TestFirstWeekdayInYear(t *testing.T) {
 		args args
 		want time.Time
 	}{
-		{name: "1", args: args{year: 2018, weekday: time.Monday}, want: DateYMD(2018, time.January, 1)},
-		{name: "2", args: args{year: 2019, weekday: time.Tuesday}, want: DateYMD(2019, time.January, 1)},
-		{name: "3", args: args{year: 2019, weekday: time.Monday}, want: DateYMD(2019, time.January, 7)},
+		{name: "1", args: args{year: 2018, weekday: time.Monday}, want: TimeYMD(2018, time.January, 1)},
+		{name: "2", args: args{year: 2019, weekday: time.Tuesday}, want: TimeYMD(2019, time.January, 1)},
+		{name: "3", args: args{year: 2019, weekday: time.Monday}, want: TimeYMD(2019, time.January, 7)},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -109,9 +109,9 @@ func TestLastWeekdayInYear(t *testing.T) {
 		args args
 		want time.Time
 	}{
-		{name: "1", args: args{year: 2020, weekday: time.Thursday}, want: DateYMD(2020, time.December, 31)},
-		{name: "2", args: args{year: 2020, weekday: time.Wednesday}, want: DateYMD(2020, time.December, 30)},
-		{name: "3", args: args{year: 2020, weekday: time.Saturday}, want: DateYMD(2020, time.December, 26)},
+		{name: "1", args: args{year: 2020, weekday: time.Thursday}, want: TimeYMD(2020, time.December, 31)},
+		{name: "2", args: args{year: 2020, weekday: time.Wednesday}, want: TimeYMD(2020, time.December, 30)},
+		{name: "3", args: args{year: 2020, weekday: time.Saturday}, want: TimeYMD(2020, time.December, 26)},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

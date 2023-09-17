@@ -7,7 +7,7 @@ import (
 // CatholicEaster returns [Gregorian] date for catholic Easter for the 'year'.
 //
 // [Gregorian]: https://en.wikipedia.org/wiki/Gregorian_calendar
-func CatholicEaster(year int) time.Time {
+func CatholicEaster(year int) Date {
 	// calculates month and day for 'year' of Gregorian calendar according to Jean Meeus Astronomical Algorithms
 	// https://en.wikipedia.org/wiki/Date_of_Easter
 	// https://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D1%81%D1%85%D0%B0%D0%BB%D0%B8%D1%8F
@@ -26,13 +26,13 @@ func CatholicEaster(year int) time.Time {
 	month := (h + l - 7*m + 114) / 31
 	day := ((h + l - 7*m + 114) % 31) + 1
 
-	return DateYMD(year, time.Month(month), day)
+	return Date{year, time.Month(month), day}
 }
 
 // OrthodoxEaster returns [Gregorian] date for orthodox Easter for the 'year'.
 //
 // [Gregorian]: https://en.wikipedia.org/wiki/Gregorian_calendar
-func OrthodoxEaster(year int) time.Time {
+func OrthodoxEaster(year int) Date {
 	// calculates month and day for 'year' of Julian calendar according to Jean Meeus Astronomical Algorithms
 	// https://en.wikipedia.org/wiki/Date_of_Easter
 	// https://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D1%81%D1%85%D0%B0%D0%BB%D0%B8%D1%8F
@@ -44,6 +44,6 @@ func OrthodoxEaster(year int) time.Time {
 	month := (d + e + 114) / 31
 	day := ((d + e + 114) % 31) + 1
 
-	res, _ := JulianToGregorian(DateYMD(year, time.Month(month), day))
+	res, _ := JulianToGregorian(Date{year, time.Month(month), day})
 	return res
 }

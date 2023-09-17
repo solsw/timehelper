@@ -66,7 +66,7 @@ type times2 struct {
 func TestTimeStringJSON2(t *testing.T) {
 	t0 := time.Time{}
 	ts0, _ := NewTimeString(t0)
-	t1 := DateYMD(2006, 1, 2)
+	t1 := TimeYMD(2006, 1, 2)
 	ts1, _ := NewTimeString(t1)
 	tests := []struct {
 		name string

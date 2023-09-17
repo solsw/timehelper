@@ -14,7 +14,7 @@ func TestUnixTime_MarshalBinary(t *testing.T) {
 		want int64
 	}{
 		{name: "zero time", ut: UnixTime(time.Time{}), want: -62135596800},
-		{name: "1", ut: UnixTime(DateYMD(2006, 1, 2)), want: 1136160000},
+		{name: "1", ut: UnixTime(TimeYMD(2006, 1, 2)), want: 1136160000},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -30,8 +30,8 @@ func TestUnixTime_MarshalBinary(t *testing.T) {
 func Test_unixTimeUnmarshalBin(t *testing.T) {
 	utz := UnixTime(time.Time{})
 	bbz, _ := utz.MarshalBinary()
-	ut0 := UnixTime(DateYMD(1970, 1, 1))
-	ut1 := UnixTime(DateYMD(2006, 1, 2))
+	ut0 := UnixTime(TimeYMD(1970, 1, 1))
+	ut1 := UnixTime(TimeYMD(2006, 1, 2))
 	bb1, _ := ut1.MarshalBinary()
 	type args struct {
 		bb []byte
@@ -68,7 +68,7 @@ func TestUnixTime_String(t *testing.T) {
 		tr   UnixTime
 		want string
 	}{
-		{name: "1", tr: UnixTime(DateYMD(2006, 1, 2)), want: "1136160000"},
+		{name: "1", tr: UnixTime(TimeYMD(2006, 1, 2)), want: "1136160000"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -80,7 +80,7 @@ func TestUnixTime_String(t *testing.T) {
 }
 
 func Test_unixTimeUnmarshalStr(t *testing.T) {
-	ut1 := UnixTime(DateYMD(2006, 1, 2))
+	ut1 := UnixTime(TimeYMD(2006, 1, 2))
 	type args struct {
 		str string
 	}

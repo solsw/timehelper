@@ -13,12 +13,16 @@ func TestCatholicEaster(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want time.Time
+		want Date
 	}{
-		{name: "1", args: args{year: 2018},
-			want: time.Date(2018, time.April, 1, 0, 0, 0, 0, time.UTC)},
-		{name: "2", args: args{year: 2019},
-			want: time.Date(2019, time.April, 21, 0, 0, 0, 0, time.UTC)},
+		{name: "1",
+			args: args{year: 2018},
+			want: Date{2018, time.April, 1},
+		},
+		{name: "2",
+			args: args{year: 2019},
+			want: Date{2019, time.April, 21},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -36,12 +40,16 @@ func TestOrthodoxEaster(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want time.Time
+		want Date
 	}{
-		{name: "1", args: args{year: 2018},
-			want: time.Date(2018, time.April, 8, 0, 0, 0, 0, time.UTC)},
-		{name: "2", args: args{year: 2019},
-			want: time.Date(2019, time.April, 28, 0, 0, 0, 0, time.UTC)},
+		{name: "1",
+			args: args{year: 2018},
+			want: Date{2018, time.April, 8},
+		},
+		{name: "2",
+			args: args{year: 2019},
+			want: Date{2019, time.April, 28},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
