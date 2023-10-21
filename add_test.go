@@ -16,13 +16,55 @@ func TestAddMonth(t *testing.T) {
 		args args
 		want time.Time
 	}{
-		{name: "1", args: args{t: TimeYMD(1960, time.June, 23), mons: 2}, want: TimeYMD(1960, time.August, 23)},
-		{name: "2", args: args{t: TimeYMD(1960, time.June, 23), mons: 23}, want: TimeYMD(1962, time.May, 23)},
-		{name: "3", args: args{t: TimeYMD(1960, time.June, 23), mons: -2}, want: TimeYMD(1960, time.April, 23)},
-		{name: "4", args: args{t: TimeYMD(1960, time.June, 23), mons: -23}, want: TimeYMD(1958, time.July, 23)},
-		{name: "5", args: args{t: TimeYMD(1960, time.June, 23), mons: -24}, want: TimeYMD(1958, time.June, 23)},
-		{name: "6", args: args{t: TimeYMD(1960, time.January, 23), mons: -2}, want: TimeYMD(1959, time.November, 23)},
-		{name: "7", args: args{t: TimeYMD(1960, time.January, 31), mons: -4}, want: TimeYMD(1959, time.September, 30)},
+		{name: "1",
+			args: args{
+				t:    TimeYMD(1960, time.June, 23),
+				mons: 2,
+			},
+			want: TimeYMD(1960, time.August, 23),
+		},
+		{name: "2",
+			args: args{
+				t:    TimeYMD(1960, time.June, 23),
+				mons: 23,
+			},
+			want: TimeYMD(1962, time.May, 23),
+		},
+		{name: "3",
+			args: args{
+				t:    TimeYMD(1960, time.June, 23),
+				mons: -2,
+			},
+			want: TimeYMD(1960, time.April, 23),
+		},
+		{name: "4",
+			args: args{
+				t:    TimeYMD(1960, time.June, 23),
+				mons: -23,
+			},
+			want: TimeYMD(1958, time.July, 23),
+		},
+		{name: "5",
+			args: args{
+				t:    TimeYMD(1960, time.June, 23),
+				mons: -24,
+			},
+			want: TimeYMD(1958, time.June, 23),
+		},
+		{name: "6",
+			args: args{
+				t:    TimeYMD(1960, time.January, 23),
+				mons: -2,
+			},
+			want: TimeYMD(1959, time.November, 23),
+		},
+		{name: "7",
+			args: args{
+				t:    TimeYMD(1960, time.January, 31),
+				mons: -4,
+			},
+			want: TimeYMD(1959, time.September, 30),
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

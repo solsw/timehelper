@@ -17,8 +17,14 @@ func TestNewTimeString(t *testing.T) {
 		want    TimeString
 		wantErr bool
 	}{
-		{name: "0", args: args{t: time.Time{}}, want: ""},
-		{name: "1", args: args{t: time.Date(2006, 1, 2, 15, 4, 5, 0, time.UTC)}, want: "2006-01-02T15:04:05Z"},
+		{name: "0",
+			args: args{t: time.Time{}},
+			want: "",
+		},
+		{name: "1",
+			args: args{t: time.Date(2006, 1, 2, 15, 4, 5, 0, time.UTC)},
+			want: "2006-01-02T15:04:05Z",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -41,8 +47,14 @@ func TestTimeString_Time(t *testing.T) {
 		want    time.Time
 		wantErr bool
 	}{
-		{name: "0", ts: TimeString(""), want: time.Time{}},
-		{name: "1", ts: TimeString("2006-01-02T15:04:05Z"), want: time.Date(2006, 1, 2, 15, 4, 5, 0, time.UTC)},
+		{name: "0",
+			ts:   TimeString(""),
+			want: time.Time{},
+		},
+		{name: "1",
+			ts:   TimeString("2006-01-02T15:04:05Z"),
+			want: time.Date(2006, 1, 2, 15, 4, 5, 0, time.UTC),
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -75,10 +87,12 @@ func TestTimeStringJSON2(t *testing.T) {
 	}{
 		{name: "0",
 			t2:   times2{T: t0, Ts: ts0},
-			want: `{"time":"0001-01-01T00:00:00Z"}`},
+			want: `{"time":"0001-01-01T00:00:00Z"}`,
+		},
 		{name: "1",
 			t2:   times2{T: t1, Ts: ts1},
-			want: `{"time":"2006-01-02T00:00:00Z","timeString":"2006-01-02T00:00:00Z"}`},
+			want: `{"time":"2006-01-02T00:00:00Z","timeString":"2006-01-02T00:00:00Z"}`,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

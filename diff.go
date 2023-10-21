@@ -26,10 +26,8 @@ func WeekDiff(t1, t2 time.Time) int {
 // MonthDiff returns number of whole months containing in difference (t2 - t1).
 // If 't2' is before 't1', the result (if not zero) is negative.
 func MonthDiff(t1, t2 time.Time) int {
-	var (
-		after, before time.Time
-		negative      bool
-	)
+	var after, before time.Time
+	var negative bool
 	if t1.After(t2) {
 		after = t1
 		before = t2
@@ -55,10 +53,8 @@ func MonthDiff(t1, t2 time.Time) int {
 // YearDiff returns number of whole years containing in difference (t2 - t1).
 // If 't2' is before 't1', the result (if not zero) is negative.
 func YearDiff(t1, t2 time.Time) int {
-	var (
-		after, before time.Time
-		negative      bool
-	)
+	var after, before time.Time
+	var negative bool
 	if t1.After(t2) {
 		after = t1
 		before = t2

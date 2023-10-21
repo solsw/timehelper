@@ -11,6 +11,15 @@ type Clock struct {
 	Second int
 }
 
+// ClockFromTime extracts Clock part from 't'.
+func ClockFromTime(t time.Time) Clock {
+	return Clock{
+		Hour:   t.Hour(),
+		Minute: t.Minute(),
+		Second: t.Second(),
+	}
+}
+
 // Valid reports whether 'c' represents a valid clock time.
 func (c Clock) Valid() error {
 	return ValidHMS(c.Hour, c.Minute, c.Second)

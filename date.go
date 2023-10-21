@@ -11,9 +11,13 @@ type Date struct {
 	Day   int
 }
 
-// DateFromTime creates Date from 't'.
+// DateFromTime extracts Date part from 't'.
 func DateFromTime(t time.Time) Date {
-	return Date{t.Year(), t.Month(), t.Day()}
+	return Date{
+		Year:  t.Year(),
+		Month: t.Month(),
+		Day:   t.Day(),
+	}
 }
 
 // Valid reports whether 'd' represents a valid date.

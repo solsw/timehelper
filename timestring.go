@@ -23,7 +23,7 @@ func NewTimeString(t time.Time) (TimeString, error) {
 
 // Time converts 'ts' to [time.Time].
 func (ts TimeString) Time() (time.Time, error) {
-	if len(ts) == 0 {
+	if ts == "" {
 		return time.Time{}, nil
 	}
 	var t time.Time

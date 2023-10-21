@@ -13,8 +13,14 @@ func TestUnixTime_MarshalBinary(t *testing.T) {
 		ut   UnixTime
 		want int64
 	}{
-		{name: "zero time", ut: UnixTime(time.Time{}), want: -62135596800},
-		{name: "1", ut: UnixTime(TimeYMD(2006, 1, 2)), want: 1136160000},
+		{name: "zero time",
+			ut:   UnixTime(time.Time{}),
+			want: -62135596800,
+		},
+		{name: "1",
+			ut:   UnixTime(TimeYMD(2006, 1, 2)),
+			want: 1136160000,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -42,11 +48,26 @@ func Test_unixTimeUnmarshalBin(t *testing.T) {
 		want    *UnixTime
 		wantErr bool
 	}{
-		{name: "00", args: args{}, wantErr: true},
-		{name: "01", args: args{bb: make([]byte, 0)}, wantErr: true},
-		{name: "zero time", args: args{bb: bbz}, want: &utz},
-		{name: "0", args: args{bb: []byte{0}}, want: &ut0},
-		{name: "1", args: args{bb: bb1}, want: &ut1},
+		{name: "00",
+			args:    args{},
+			wantErr: true,
+		},
+		{name: "01",
+			args:    args{bb: make([]byte, 0)},
+			wantErr: true,
+		},
+		{name: "zero time",
+			args: args{bb: bbz},
+			want: &utz,
+		},
+		{name: "0",
+			args: args{bb: []byte{0}},
+			want: &ut0,
+		},
+		{name: "1",
+			args: args{bb: bb1},
+			want: &ut1,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -68,7 +89,10 @@ func TestUnixTime_String(t *testing.T) {
 		tr   UnixTime
 		want string
 	}{
-		{name: "1", tr: UnixTime(TimeYMD(2006, 1, 2)), want: "1136160000"},
+		{name: "1",
+			tr:   UnixTime(TimeYMD(2006, 1, 2)),
+			want: "1136160000",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -90,9 +114,18 @@ func Test_unixTimeUnmarshalStr(t *testing.T) {
 		want    *UnixTime
 		wantErr bool
 	}{
-		{name: "00", args: args{str: ""}, wantErr: true},
-		{name: "01", args: args{str: "qwerty"}, wantErr: true},
-		{name: "1", args: args{str: "1136160000"}, want: &ut1},
+		{name: "00",
+			args:    args{str: ""},
+			wantErr: true,
+		},
+		{name: "01",
+			args:    args{str: "qwerty"},
+			wantErr: true,
+		},
+		{name: "1",
+			args: args{str: "1136160000"},
+			want: &ut1,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

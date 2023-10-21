@@ -10,7 +10,7 @@ import (
 // UnixTime is a helper type to marshal/unmarshal [time.Time] as a Unix time in seconds.
 type UnixTime time.Time
 
-// String returns decimal representation of 't'.
+// String returns decimal string representation of 't'.
 // String implements the [fmt.Stringer] interface.
 func (t UnixTime) String() string {
 	return strconv.FormatInt(time.Time(t).Unix(), 10)
