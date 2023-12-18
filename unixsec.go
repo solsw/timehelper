@@ -1,6 +1,8 @@
 package timehelper
 
 import (
+	"bytes"
+	"encoding/binary"
 	"strconv"
 	"time"
 )
@@ -48,4 +50,14 @@ func parseSec(sec int64) UnixSec {
 // ParseSec parses seconds to UnixSec.
 func (t *UnixSec) ParseSec(sec int64) {
 	*t = parseSec(sec)
+}
+
+// UnmarshalJSON implements the [encoding/json.Unmarshaler] interface.
+func (t *UnixSec) UnmarshalJSON(bb []byte) error {
+	sec, err := binary.ReadVarint(bytes.NewReader(bb))
+	if err != nil {
+		return err
+	}
+	*t = parseSec(sec)
+	return nil
 }
