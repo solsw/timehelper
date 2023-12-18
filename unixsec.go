@@ -52,6 +52,13 @@ func (t *UnixSec) ParseSec(sec int64) {
 	*t = parseSec(sec)
 }
 
+// MarshalJSON implements the [encoding/json.Marshaler] interface.
+func (t UnixSec) MarshalJSON() ([]byte, error) {
+	bb := make([]byte, binary.MaxVarintLen64)
+	n := binary.PutVarint(bb, time.Time(t).Unix())
+	return bb[:n], nil
+}
+
 // UnmarshalJSON implements the [encoding/json.Unmarshaler] interface.
 func (t *UnixSec) UnmarshalJSON(bb []byte) error {
 	sec, err := binary.ReadVarint(bytes.NewReader(bb))
